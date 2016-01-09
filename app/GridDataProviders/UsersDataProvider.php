@@ -6,6 +6,7 @@ namespace App\GridDataProviders;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Config;
 use Paramonov\Grid\GridDataProvider;
 use Paramonov\Grid\GridPagination;
 
@@ -52,12 +53,12 @@ class UsersDataProvider implements GridDataProvider
                 },
                 'name' => function(Builder $query, $search) {
                     if (is_string($search)) {
-                        $query->whereRaw('LOWER(users.name)', 'like', '%' . $search . '%');
+                        $query->whereRaw('LOWER(users.name) like ?', ['%' . $search . '%']);
                     }
                 },
                 'email' => function(Builder $query, $search) {
                     if (is_string($search)) {
-                        $query->where('LOWER(users.email)', 'like', '%' . $search . '%');
+                        $query->where('LOWER(users.email) like ?', ['%' . $search . '%']);
                     }
                 },
                 'created_at' => function(Builder $query, $search) {
@@ -99,11 +100,18 @@ class UsersDataProvider implements GridDataProvider
                             if (is_numeric($search)) {
                                 $query->where('users.id', '=', $search, 'or');
                             }
-                            $query->where('LOWER(users.name)', 'like', '%' . $search . '%', 'or');
-                            $query->where('LOWER(users.email)', 'like', '%' . $search . '%', 'or');
-                            $query->where('LOWER(user_companies.title)', 'like', '%' . $search . '%', 'or');
-                            $query->whereRaw('CAST(users.created_at AS TEXT) like ?', ['%' . $search . '%'], 'or');
-                            $query->whereRaw('CAST(users.updated_at AS TEXT) like ?', ['%' . $search . '%'], 'or');
+                            $query->whereRaw('LOWER(users.name) like ?', ['%' . $search . '%'], 'or');
+                            $query->whereRaw('LOWER(users.email) like ?', ['%' . $search . '%'], 'or');
+                            $query->whereRaw('LOWER(user_companies.title) like ?', ['%' . $search . '%'], 'or');
+
+                            $database_driver = Config::get('database.default');
+                            $cast = 'TEXT';
+                            if ($database_driver == 'mysql') {
+                                $cast = 'CHAR';
+                            }
+
+                            $query->whereRaw('CAST(users.created_at AS ' . $cast . ') like ?', ['%' . $search . '%'], 'or');
+                            $query->whereRaw('CAST(users.updated_at AS ' . $cast . ') like ?', ['%' . $search . '%'], 'or');
                         });
 
                     }
