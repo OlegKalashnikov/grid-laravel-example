@@ -1,0 +1,30 @@
+{
+  "name": "test.local",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Alexander Paramonov <xxxcoltxxx@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/xxxcoltxxx/grid-laravel-example",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-bootstrap-select": "~0.0.5",
+    "angular-bootstrap": "~1.0.0",
+    "angular-cookies": "~1.4.8",
+    "angular-daterangepicker": "~0.2.2",
+    "angular": "~1.4.8",
+    "bootstrap-daterangepicker": "~2.1.17",
+    "bootstrap-select": "~1.9.3",
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0",
+    "jquery": "~2.2.0"
+  }
+}
