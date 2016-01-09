@@ -50,3 +50,10 @@ npm install
 bower install
 gulp
 ```
+
+## Заполнение тестовыми данными
+```
+php artisan tinker
+factory('App\UserCompany', 10)->create()
+factory('App\User', 100)->create()
+```

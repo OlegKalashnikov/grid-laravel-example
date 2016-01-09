@@ -18,7 +18,7 @@ class CreateUserCompanies extends Migration
         });
 
         Schema::table('users', function(Blueprint $table) {
-            $table->integer('company_id')->nullable();
+            $table->integer('company_id')->nullable()->unsigned();
 
             $table->foreign('company_id')->references('id')->on('user_companies');
         });
