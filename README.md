@@ -46,9 +46,6 @@ composer install
 cp .env.example .env # Настроить соединение с БД в этом файле
 php artisan key:generate
 php artisan migrate
-php artisan module:migrate
-php artisan db:seed
-php artisan module:seed
 npm install
 bower install
 gulp
