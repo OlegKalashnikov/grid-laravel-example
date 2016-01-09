@@ -52,12 +52,12 @@ class UsersDataProvider implements GridDataProvider
                 },
                 'name' => function(Builder $query, $search) {
                     if (is_string($search)) {
-                        $query->where('users.name', 'ilike', '%' . $search . '%');
+                        $query->whereRaw('LOWER(users.name)', 'like', '%' . $search . '%');
                     }
                 },
                 'email' => function(Builder $query, $search) {
                     if (is_string($search)) {
-                        $query->where('users.email', 'ilike', '%' . $search . '%');
+                        $query->where('LOWER(users.email)', 'like', '%' . $search . '%');
                     }
                 },
                 'created_at' => function(Builder $query, $search) {
@@ -99,11 +99,11 @@ class UsersDataProvider implements GridDataProvider
                             if (is_numeric($search)) {
                                 $query->where('users.id', '=', $search, 'or');
                             }
-                            $query->where('users.name', 'ilike', '%' . $search . '%', 'or');
-                            $query->where('users.email', 'ilike', '%' . $search . '%', 'or');
-                            $query->where('user_companies.title', 'ilike', '%' . $search . '%', 'or');
-                            $query->whereRaw('CAST(users.created_at AS TEXT) ilike ?', ['%' . $search . '%'], 'or');
-                            $query->whereRaw('CAST(users.updated_at AS TEXT) ilike ?', ['%' . $search . '%'], 'or');
+                            $query->where('LOWER(users.name)', 'like', '%' . $search . '%', 'or');
+                            $query->where('LOWER(users.email)', 'like', '%' . $search . '%', 'or');
+                            $query->where('LOWER(user_companies.title)', 'like', '%' . $search . '%', 'or');
+                            $query->whereRaw('CAST(users.created_at AS TEXT) like ?', ['%' . $search . '%'], 'or');
+                            $query->whereRaw('CAST(users.updated_at AS TEXT) like ?', ['%' . $search . '%'], 'or');
                         });
 
                     }
