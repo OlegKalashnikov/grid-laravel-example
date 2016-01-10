@@ -1,4 +1,4 @@
-Проект демонстрирует возможности пакета grid-laravel
+Проект демонстрирует возможности пакета [grid-laravel](https://github.com/xxxcoltxxx/grid-laravel)
 
 [Демо](http://grid-laravel.colt-web.ru/)
 
