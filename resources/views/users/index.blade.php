@@ -31,14 +31,12 @@
         'created_at' => [
             'title' => 'Создан',
             'type' => 'daterange',
-            'cell' => "@{{ item.created_at | date:'dd.MM.yyyy HH:mm' }}",
             'data-class' => 'text-center',
             'class' => 'col-lg-2'
         ],
         'updated_at' => [
             'title' => 'Обновлен',
             'type' => 'daterange',
-            'cell' => "@{{ item.created_at | date:'dd.MM.yyyy HH:mm' }}",
             'data-class' => 'text-center',
             'class' => 'col-lg-2'
         ]

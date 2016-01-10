@@ -1874,16 +1874,16 @@
         },
         {
             "name": "xxxcoltxxx/grid-laravel",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xxxcoltxxx/grid-laravel.git",
-                "reference": "aa24f2f036bf4b73f8500b904d41f6afd3387aca"
+                "reference": "60c3cf8b56a89cfa15fb048a2273a763b6b3966f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xxxcoltxxx/grid-laravel/zipball/aa24f2f036bf4b73f8500b904d41f6afd3387aca",
-                "reference": "aa24f2f036bf4b73f8500b904d41f6afd3387aca",
+                "url": "https://api.github.com/repos/xxxcoltxxx/grid-laravel/zipball/60c3cf8b56a89cfa15fb048a2273a763b6b3966f",
+                "reference": "60c3cf8b56a89cfa15fb048a2273a763b6b3966f",
                 "shasum": ""
             },
             "require": {
@@ -1906,7 +1906,7 @@
                 }
             ],
             "description": "Grid Package for Laravel 5",
-            "time": "2016-01-09 21:47:52"
+            "time": "2016-01-10 00:37:37"
         }
     ],
     "packages-dev": [
