@@ -1,5 +1,7 @@
 Проект демонстрирует возможности пакета grid-laravel
 
+[Демо](http://grid-laravel.colt-web.ru/)
+
 ## Зависимости
 - php
 - composer
