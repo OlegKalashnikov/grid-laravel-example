@@ -1874,16 +1874,16 @@
         },
         {
             "name": "xxxcoltxxx/grid-laravel",
-            "version": "1.0.4",
+            "version": "1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xxxcoltxxx/grid-laravel.git",
-                "reference": "60c3cf8b56a89cfa15fb048a2273a763b6b3966f"
+                "reference": "d92d9dc153cd30d11d599251eef10584c2f8e4c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xxxcoltxxx/grid-laravel/zipball/60c3cf8b56a89cfa15fb048a2273a763b6b3966f",
-                "reference": "60c3cf8b56a89cfa15fb048a2273a763b6b3966f",
+                "url": "https://api.github.com/repos/xxxcoltxxx/grid-laravel/zipball/d92d9dc153cd30d11d599251eef10584c2f8e4c2",
+                "reference": "d92d9dc153cd30d11d599251eef10584c2f8e4c2",
                 "shasum": ""
             },
             "require": {
@@ -1906,7 +1906,7 @@
                 }
             ],
             "description": "Grid Package for Laravel 5",
-            "time": "2016-01-10 00:37:37"
+            "time": "2016-01-10 07:47:43"
         }
     ],
     "packages-dev": [
@@ -2060,52 +2060,6 @@
                 "test"
             ],
             "time": "2015-05-11 14:41:42"
-        },
-        {
-            "name": "illuminate/html",
-            "version": "v5.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/html.git",
-                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/html/zipball/3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
-                "reference": "3d1009bb8e0f25720c914af5c1f4015dd373c9ef",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/http": "~5.0",
-                "illuminate/session": "~5.0",
-                "illuminate/support": "~5.0",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "5.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Illuminate\\Html\\": ""
-                },
-                "files": [
-                    "helpers.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
-                }
-            ],
-            "time": "2015-01-01 16:31:18"
         },
         {
             "name": "mockery/mockery",

@@ -53,12 +53,12 @@ class UsersDataProvider implements GridDataProvider
                 },
                 'name' => function(Builder $query, $search) {
                     if (is_string($search)) {
-                        $query->whereRaw('LOWER(users.name) like ?', ['%' . $search . '%']);
+                        $query->whereRaw('LOWER(users.name) like LOWER(?)', ['%' . $search . '%']);
                     }
                 },
                 'email' => function(Builder $query, $search) {
                     if (is_string($search)) {
-                        $query->whereRaw('LOWER(users.email) like ?', ['%' . $search . '%']);
+                        $query->whereRaw('LOWER(users.email) like LOWER(?)', ['%' . $search . '%']);
                     }
                 },
                 'created_at' => function(Builder $query, $search) {
@@ -100,9 +100,9 @@ class UsersDataProvider implements GridDataProvider
                             if (is_numeric($search)) {
                                 $query->where('users.id', '=', $search, 'or');
                             }
-                            $query->whereRaw('LOWER(users.name) like ?', ['%' . $search . '%'], 'or');
-                            $query->whereRaw('LOWER(users.email) like ?', ['%' . $search . '%'], 'or');
-                            $query->whereRaw('LOWER(user_companies.title) like ?', ['%' . $search . '%'], 'or');
+                            $query->whereRaw('LOWER(users.name) like LOWER(?)', ['%' . $search . '%'], 'or');
+                            $query->whereRaw('LOWER(users.email) like LOWER(?)', ['%' . $search . '%'], 'or');
+                            $query->whereRaw('LOWER(user_companies.title) like LOWER(?)', ['%' . $search . '%'], 'or');
 
                             $database_driver = Config::get('database.default');
                             $cast = 'TEXT';

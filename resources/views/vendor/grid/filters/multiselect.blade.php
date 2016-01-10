@@ -2,7 +2,6 @@
         class="form-control input-sm selectpicker"
         data-style="btn-default btn-sm"
         ng-model="data_provider.search.{{ $field }}"
-        data-live-search="true"
         multiple
         title="---"
         data-selected-text-format="count"
