@@ -1,6 +1,7 @@
 <div class="input-group input-group-sm" style="width: 210px">
     <input type="text" class="form-control"
            date-range-picker
+           options='{opens: "left"}'
            ng-model="data_provider.search.{{ $field }}"
            ng-init="clearPicker('{{ $field }}')"
     />
