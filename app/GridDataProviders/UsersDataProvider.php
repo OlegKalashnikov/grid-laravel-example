@@ -58,7 +58,7 @@ class UsersDataProvider implements GridDataProvider
                 },
                 'email' => function(Builder $query, $search) {
                     if (is_string($search)) {
-                        $query->where('LOWER(users.email) like ?', ['%' . $search . '%']);
+                        $query->whereRaw('LOWER(users.email) like ?', ['%' . $search . '%']);
                     }
                 },
                 'created_at' => function(Builder $query, $search) {
