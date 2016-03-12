@@ -16,15 +16,16 @@
     "tests"
   ],
   "dependencies": {
-    "angular-bootstrap-select": "~0.0.5",
-    "angular-bootstrap": "~1.0.0",
-    "angular-cookies": "~1.4.8",
-    "angular-daterangepicker": "~0.2.2",
+    "jquery": "~2.2.0",
     "angular": "~1.4.8",
-    "bootstrap-daterangepicker": "~2.1.17",
-    "bootstrap-select": "~1.9.3",
     "bootstrap": "~3.3.6",
     "font-awesome": "~4.5.0",
-    "jquery": "~2.2.0"
+    "angular-cookies": "~1.4.8",
+    "angular-bootstrap": "~1.0.0",
+    "bootstrap-select": "!~1.9.3",
+    "angular-bootstrap-select": "~0.0.5",
+    "bootstrap-daterangepicker": "~2.1.17",
+    "angular-daterangepicker": "~0.2.2",
+    "angular-sanitize": "^1.5.0"
   }
 }

@@ -21,6 +21,7 @@
         'email' => [
             'title' => 'E-Mail',
             'type' => 'string',
+            // Можно ячейку описать как Angular-выражение
             'cell' => "<a href='mailto:@{{ item.email }}'>@{{ item.email }}</a>"
         ],
         'user_companies.title' => [
@@ -40,6 +41,10 @@
             'data-class' => 'text-center',
             'class' => 'col-lg-2'
         ]
+    ], [
+        'search_all',
+        'column_hider',
+        'download_csv'
     ])
  !!}
 </div>

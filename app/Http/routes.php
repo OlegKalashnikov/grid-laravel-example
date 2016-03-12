@@ -12,3 +12,5 @@
 */
 
 Route::get('/', ['uses' => 'UsersController@index']);
+Route::get('/users.json', ['uses' => 'UsersController@gridData', 'as' => 'users.json']);
+Route::get('/users.csv', ['uses' => 'UsersController@gridCsv', 'as' => 'users.csv']);

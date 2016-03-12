@@ -7,7 +7,7 @@
     "require": {
         "php": ">=5.5.9",
         "laravel/framework": "5.1.*",
-        "xxxcoltxxx/grid-laravel": "~1.0"
+        "xxxcoltxxx/grid-laravel": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -1,5 +1,5 @@
-angular.module('ngGrid', ['ui.bootstrap', 'daterangepicker', 'ngCookies'])
-    .directive('ngGrid', function() {
+angular.module('ngGrid', ['ui.bootstrap', 'daterangepicker', 'ngCookies', 'ngSanitize', 'angular-bootstrap-select'])
+    .directive('ngGrid', function () {
         return {
             restrict: 'A',
             controller: ['$scope', '$http', '$cookies', '$timeout', '$q', function ($scope, $http, $cookies, $timeout, $q) {
@@ -12,13 +12,16 @@ angular.module('ngGrid', ['ui.bootstrap', 'daterangepicker', 'ngCookies'])
                     }
                 };
                 $scope.columns_hider = [];
-                $scope.dataUrl = "";
+                $scope.data_url = "";
 
                 $scope.loading = false;
+                $scope.loading_opacity = 0;
 
                 var ajaxDelayTimeout = 300,
                     ajaxDelay = false,
-                    canceler = $q.defer();
+                    canceler = $q.defer(),
+                    min_opacity = 0,
+                    max_opacity = 0.8;
 
                 // Pagination
                 $scope.totalItems = 0;
@@ -27,9 +30,17 @@ angular.module('ngGrid', ['ui.bootstrap', 'daterangepicker', 'ngCookies'])
                 $scope.loadGrid = function () {
                     if (ajaxDelay) {
                         $timeout.cancel(ajaxDelay);
+                        $scope.loading = false;
                     }
                     ajaxDelay = $timeout(loadGrid, ajaxDelayTimeout);
                 };
+
+
+                $scope.showHideFilters = function () {
+                    $scope.show_filters = !$scope.show_filters;
+                    saveParamsToCookies();
+                };
+
 
                 $scope.sort = function ($event, field) {
                     $event.preventDefault();
@@ -60,10 +71,11 @@ angular.module('ngGrid', ['ui.bootstrap', 'daterangepicker', 'ngCookies'])
                     canceler = $q.defer();
                     saveParamsToCookies();
                     $scope.loading = true;
+                    $scope.loading_opacity = max_opacity;
 
-                    var params = angular.merge({}, angular.fromJson(angular.toJson($scope.data_provider)), {getData: true});
+                    var params = angular.merge({}, angular.fromJson(angular.toJson($scope.data_provider)), {getData: true, column_names: $scope.headers});
                     $http.get(
-                        $scope.dataUrl,
+                        $scope.data_url,
                         {
                             params: params,
                             timeout: canceler.promise,
@@ -75,11 +87,9 @@ angular.module('ngGrid', ['ui.bootstrap', 'daterangepicker', 'ngCookies'])
                                 $scope.total = response.data.total;
                                 $scope.data_provider.pagination.items_per_page = response.data.limit + '';
                                 $scope.loading = false;
-                                //$scope.data_provider.sorting = response.data.sorting;
+                                $scope.loading_opacity = min_opacity;
                                 ajaxDelay = false;
                             }, function (response) {
-                                console.error('some http error');
-                                $scope.loading = false;
                                 ajaxDelay = false;
                             }
                         );
@@ -92,6 +102,7 @@ angular.module('ngGrid', ['ui.bootstrap', 'daterangepicker', 'ngCookies'])
                     };
                     $cookies.put('data_provider', angular.toJson($scope.data_provider), params);
                     $cookies.put('columnsHider', angular.toJson($scope.columns_hider), params);
+                    $cookies.put('showFilters', angular.toJson($scope.show_filters), params);
                 }
 
                 function loadParamsFromCookies() {
@@ -100,7 +111,9 @@ angular.module('ngGrid', ['ui.bootstrap', 'daterangepicker', 'ngCookies'])
                         if (data_provider) {
                             $scope.data_provider = angular.merge($scope.data_provider, data_provider);
                         }
+                        $scope.show_filters = typeof $cookies.get('showFilters') == 'undefined' ? false : $cookies.get('showFilters') === 'true';
                     } catch (e) {
+
                     }
                 }
 
