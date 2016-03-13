@@ -12,7 +12,10 @@ use Paramonov\Grid\GridPagination;
 
 class UsersDataProvider extends GridDataProvider
 {
+
     /**
+     * Запрос для выборки данных для таблицы
+     *
      * @return Builder
      */
     public function query()
@@ -22,6 +25,8 @@ class UsersDataProvider extends GridDataProvider
 
 
     /**
+     * Пагинация
+     *
      * @return GridPagination
      */
     public function pagination()
@@ -30,6 +35,9 @@ class UsersDataProvider extends GridDataProvider
     }
 
     /**
+     * Фильтрация выборки. Аналог scope в модели
+     * Ключи массива должны совпадать с ключами массива из view
+     *
      * @return \Closure[]
      */
     public function filters()
@@ -108,27 +116,59 @@ class UsersDataProvider extends GridDataProvider
         ];
     }
 
+
+    /**
+     * Необязательный метод
+     * url для подгрузки данных
+     *
+     * @return string
+     */
     protected function dataUrl()
     {
         return route('users.json');
     }
 
+    /**
+     * Необязательный метод
+     * url для загрузки CSV-файла
+     *
+     * @return string
+     */
     protected function csvUrl()
     {
         return route('users.csv');
     }
 
 
+    /**
+     * Необязательный метод
+     * Поля типа "Дата"
+     *
+     * @return array
+     */
     protected function dates()
     {
         return ['created_at', 'updated_at'];
     }
 
+    /**
+     * Необязательный метод
+     * Фильтры по-умолчанию
+     * Они применяются, если фильтры отсутствуют или пользователь сбросил все фильтры
+     *
+     * @return array
+     */
     protected function dateFormat()
     {
         return 'd.m.Y в H:i:s';
     }
 
+    /**
+     * Необязательный метод
+     * Сортировка по умолчанию
+     *
+     * @return array
+     */
     protected function defaultSorting()
     {
         return ['field' => 'id', 'dir' => 'asc'];

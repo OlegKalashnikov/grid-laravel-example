@@ -41,7 +41,9 @@
             'data-class' => 'text-center',
             'class' => 'col-lg-2'
         ]
-    ], [
+    ],
+    // Опционально. По умолчанию подключаются эти компоненты. Это обычные views, можно создавать свои компоненты
+    [
         'search_all',
         'column_hider',
         'download_csv'

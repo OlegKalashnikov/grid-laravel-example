@@ -13,7 +13,7 @@ elixir(function(mix) {
         'bower_components/bootstrap-daterangepicker/daterangepicker.js',
         'bower_components/angular-daterangepicker/js/angular-daterangepicker.js',
         'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
-        'resources/assets/vendor/grid/js/angular.init.js',
+        'resources/assets/vendor/grid/js/angular.init.example.js',
         'resources/assets/vendor/grid/js/ngGrid.js'
     ], 'public/js/scripts.js', '.');
 

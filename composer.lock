@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8b453649517716e3730c8daae796f19e",
-    "content-hash": "c6025c91418768d1dd9c965f1a927251",
+    "hash": "1475733b5ac2a629eaf819f11de35664",
+    "content-hash": "e9396aaffab312370119a7e6ac7a926c",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -1875,16 +1875,16 @@
         },
         {
             "name": "xxxcoltxxx/grid-laravel",
-            "version": "dev-master",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xxxcoltxxx/grid-laravel.git",
-                "reference": "e3cedd607b09a29cc33a0d862992fa5127a02d54"
+                "reference": "d1f8dea49732e262d688972a84a3983f62c7dbe5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xxxcoltxxx/grid-laravel/zipball/e3cedd607b09a29cc33a0d862992fa5127a02d54",
-                "reference": "e3cedd607b09a29cc33a0d862992fa5127a02d54",
+                "url": "https://api.github.com/repos/xxxcoltxxx/grid-laravel/zipball/d1f8dea49732e262d688972a84a3983f62c7dbe5",
+                "reference": "d1f8dea49732e262d688972a84a3983f62c7dbe5",
                 "shasum": ""
             },
             "require": {
@@ -1907,7 +1907,7 @@
                 }
             ],
             "description": "Grid Package for Laravel 5",
-            "time": "2016-03-11 06:37:28"
+            "time": "2016-03-13 00:04:00"
         }
     ],
     "packages-dev": [
@@ -3141,9 +3141,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "xxxcoltxxx/grid-laravel": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
