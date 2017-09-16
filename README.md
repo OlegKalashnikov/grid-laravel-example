@@ -44,6 +44,7 @@ sudo npm i -g gulp
 ## Развертывание проекта
 
 ```sh
+
 composer install
 cp .env.example .env # Настроить соединение с БД в этом файле
 php artisan key:generate

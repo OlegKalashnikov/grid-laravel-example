@@ -1,0 +1,31 @@
+image: docker:latest
+
+stages:
+  - build:deps
+  - deploy
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+
+variables:
+  DOCKER_DRIVER: overlay
+  RELEASE_PHP_TAG: $CI_REGISTRY_IMAGE/php
+
+build:deps:
+  stage: build:deps
+  only:
+    - master
+  tags:
+    - deploy
+  script:
+    - docker/scripts/build.sh $CI_PROJECT_DIR
+
+deploy:prod:
+  stage: deploy
+  only:
+    - master
+  tags:
+    - deploy
+  when: on_success
+  script:
+    - docker/scripts/deploy.sh

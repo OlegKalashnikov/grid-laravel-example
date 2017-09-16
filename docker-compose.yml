@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  web:
+    image: registry.gitlab.com/xxxcoltxxx/grid-laravel-example/web
+    container_name: grid_example_laravel_web
+    ports:
+      - 8080:80
+
+  php:
+    image: registry.gitlab.com/xxxcoltxxx/grid-laravel-example/php
+    volumes:
+      - .env:/app/.env
+
+  db:
+    image: postgres:9.6-alpine
+    container_name: grid_example_laravel_db
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=grid
+      - POSTGRES_PASSWORD=grid
+      - POSTGRES_DB=grid
+
+volumes:
+  pg_data:
+    driver: local

@@ -1,0 +1,13 @@
+RESET="\033[0m"
+FONT_BOLD="\033[1m"
+COLOR_COMMAND="\033[00;32m"
+COLOR_INFO="\033[90m"
+
+color_info() {
+  echo ${COLOR_INFO}${FONT_BOLD}$1${RESET}
+}
+
+
+color_command() {
+  echo ${COLOR_COMMAND}$1${RESET}
+}

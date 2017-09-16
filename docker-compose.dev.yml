@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  web:
+    volumes:
+      - .:/app
+    ports:
+      - 8080:80
+
+  php:
+    volumes:
+      - .:/app
+
+  db:
+    ports:
+      - 5432:5432

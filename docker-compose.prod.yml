@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  web:
+    networks:
+      - multihost
+      - default
+
+networks:
+  multihost:
+    external: true
